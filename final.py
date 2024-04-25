@@ -29,6 +29,7 @@ def matrix_multiply(A_parts, B_parts):
     local_n = len(A_parts[0])
     local_C = np.zeros((local_n, local_n))
     
+    # From pseudo code provided
     for t in range(size):
         SPROC = (rank + t) % size
         RPROC = (rank - t + size) % size
@@ -52,7 +53,7 @@ def main():
     size = comm.Get_size()
     
     # Define the values of N and P for the experiments
-    N_values = [100]
+    N_values = [5000]
     P_values = [1, 2, 4, 8]
     
     # Dictionary to store runtimes for different values of N and P
